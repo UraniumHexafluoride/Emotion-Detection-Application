@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection Application - Documentation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2980b9;
+            --accent-color: #e74c3c;
+            --light-bg: #f8f9fa;
+            --dark-bg: #343a40;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            padding-top: 56px;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 4rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .section {
+            padding: 3rem 0;
+        }
+        
+        .section:nth-child(even) {
+            background-color: var(--light-bg);
+        }
+        
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 1.5rem;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .feature-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .component-diagram {
+            margin: 2rem 0;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .component {
+            border: 2px solid var(--primary-color);
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: white;
+        }
+        
+        .component h5 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .connector {
+            text-align: center;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin: 0.5rem 0;
+        }
+        
+        .api-endpoint {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .api-method {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        code {
+            background-color: #f1f1f1;
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: Consolas, Monaco, 'Andale Mono', monospace;
+        }
+        
+        pre {
+            background-color: #272822;
+            color: #f8f8f2;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+        
+        .footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: var(--dark-bg);">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-brain me-2"></i>
+                Emotion Detection
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#overview">Overview</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#architecture">Architecture</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#installation">Installation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#api">API</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/yourusername/emotion-detection-application">GitHub</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container text-center">
+            <h1><i class="fas fa-brain me-2"></i> Emotion Detection Application</h1>
+            <p class="lead">An intelligent web application for detecting emotions in text using Watson AI</p>
+            <div class="mt-4">
+                <a href="#quickstart" class="btn btn-light btn-lg me-2">Quick Start</a>
+                <a href="https://github.com/yourusername/emotion-detection-application" class="btn btn-outline-light btn-lg">
+                    <i class="fab fa-github me-2"></i>View on GitHub
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Overview Section -->
+    <section id="overview" class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Project Overview</h2>
+                    <p class="lead">Understand the emotions behind text with AI-powered analysis</p>
+                    <p>
+                        The Emotion Detection Application is a sophisticated web-based tool that leverages 
+                        Watson AI's natural language processing capabilities to analyze and identify emotions 
+                        in text. Going beyond simple sentiment analysis, it can detect nuanced emotions 
+                        including joy, sadness, anger, fear, and disgust.
+                    </p>
+                    <p>
+                        Whether you're analyzing customer feedback, social media content, or any text-based 
+                        communication, this application provides insights into the emotional undertones 
+                        present in the text, helping you better understand the message behind the words.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Try it out</h5>
+                            <div class="mb-3">
+                                <label for="sampleText" class="form-label">Enter some text:</label>
+                                <textarea class="form-control" id="sampleText" rows="3" placeholder="I am really excited about this new project!"></textarea>
+                            </div>
+                            <div class="text-center">
+                                <button type="button" class="btn btn-primary" disabled>Analyze (Demo Only)</button>
+                            </div>
+                            <div class="mt-3">
+                                <p><small>This is a demonstration. For working analysis, install the application.</small></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Feature Highlights</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-comment-dots"></i>
+                            </div>
+                            <h5 class="card-title">Text Analysis</h5>
+                            <p class="card-text">Analyze any text input to detect emotional content. The system works with sentences, paragraphs, or longer texts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-pie"></i>
+                            </div>
+                            <h5 class="card-title">Multiple Emotion Detection</h5>
+                            <p class="card-text">Identifies five core emotions (joy, sadness, anger, fear, disgust) with confidence scores for each.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h5 class="card-title">Dominant Emotion</h5>
+                            <p class="card-text">Automatically highlights the strongest emotion present in the analyzed text for quick insights.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-desktop"></i>
+                            </div>
+                            <h5 class="card-title">Web Interface</h5>
+                            <p class="card-text">User-friendly interface makes it easy to input text and view analysis results in a clean, organized format.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-plug"></i>
+                            </div>
+                            <h5 class="card-title">API Access</h5>
+                            <p class="card-text">RESTful API endpoint allows integration with other applications and services for automated emotion analysis.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100">
+                        <div class="card-body text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h5 class="card-title">Error Handling</h5>
+                            <p class="card-text">Robust error handling ensures the application can gracefully manage invalid inputs or service disruptions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Guide -->
+    <section id="quickstart" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Quick Start Guide</h2>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Get Up and Running in 3 Steps</h5>
+                            <ol class="mt-4">
+                                <li class="mb-3">
+                                    <strong>Clone the repository</strong>
+                                    <pre><code>git clone https://github.com/yourusername/emotion-detection-application.git
+cd emotion-detection-application</code></pre>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Install dependencies</strong>
+                                    <pre><code>pip install flask requests</code></pre>
+                                </li>
+                                <li class="mb-3">
+                                    <strong>Start the application</strong>
+                                    <pre><code>python 2_web_server.py</code></pre>
+                                    <p>Then open your browser and navigate to <code>http://localhost:5000</code></p>
+                                </li>
+                            </ol>
+                            <div class="text-center mt-4">
+                                <a href="#installation" class="btn btn-primary">View Detailed Installation Guide</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture Section -->
+    <section id="architecture" class="section">
+        <div class="container">
+            <h2 class="text-center mb-5">Visual Component Hierarchy</h2>
+            <div class="component-diagram">
+                <div class="row">
+                    <div class="col-md-10 mx-auto">
+                        <div class="component">
+                            <h5>1. Core Detection Layer</h5>
+                            <p><code>EmotionDetection/1_core_detector.py</code></p>
+                            <p>Handles API communication with Watson NLP and processes raw responses</p>
+                        </div>
+                        <div class="connector text-center">
+                            
+
