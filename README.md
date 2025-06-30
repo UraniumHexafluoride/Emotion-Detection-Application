@@ -21,7 +21,7 @@ The Emotion Detection Application is a web-based tool that analyzes text input t
 The application follows a layered architecture with each component building upon previous ones:
 
 1. **Core Detection Layer** (`EmotionDetection/1_core_detector.py`)
-   - Handles communication with Watson NLP service
+   - Handles communication with the Watson NLP service
    - Processes raw API responses into structured emotion data
 
 2. **Web Service Layer** (`2_web_server.py`)
